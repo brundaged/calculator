@@ -3,7 +3,7 @@ pipeline {
      stages {
           stage("Checkout") {
                steps {
-                    withCredentials([string(credentialsId: 'brundaged', variable: 'SSH_KEY')]) {
+                    withCredentials([string(credentialsId: 'github-personal-key', variable: 'SSH_KEY')]) {
                          git url: 'https://github.com/brundaged/calculator.git', branch: 'main'
                     }
                }
