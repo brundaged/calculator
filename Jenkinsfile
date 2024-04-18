@@ -7,6 +7,12 @@ pipeline {
                          git url: 'https://github.com/brundaged/calculator.git', branch: 'main'
                     }
                     sh "./gradlew compileJava"
+
+               }
+          }
+          stage("Unit test") {
+              steps {
+                    sh "./gradlew test"
                }
           }
      }
