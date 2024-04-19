@@ -14,4 +14,8 @@ public class CalculatorTest {
     public void testProduct() {
         assertEquals(6, calculator.product(2, 3));
     }
+    @Test
+    public void testDifference() {
+        assertEquals(-1, calculator.difference(2, 3));
+    }
 }

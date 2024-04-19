@@ -19,4 +19,9 @@ class CalculatorController {
                     @RequestParam("b") Integer b) {
           return String.valueOf(calculator.product(a, b));
      }
+     @RequestMapping("/difference")
+     String difference(@RequestParam("a") Integer a, 
+                    @RequestParam("b") Integer b) {
+          return String.valueOf(calculator.difference(a, b));
+     }
 }
