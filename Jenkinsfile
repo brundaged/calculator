@@ -49,7 +49,7 @@ pipeline {
           always {
                slackSend channel: '#jenkins-pipeline',
                color: 'danger',
-               message: "The pipeline ${currentBuild.fullDisplayName} has updated."
+               message: "Pipeline ${currentBuild.fullDisplayName} status is ${currentBuild.result}."
           }
      }
 }
