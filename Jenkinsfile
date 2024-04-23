@@ -46,7 +46,6 @@ pipeline {
           }
           stage("Docker build") {
                steps {
-                    sh "./gradlew copyDockerfile"
                     sh "ls -alF"
                     sh "docker build -t brundaged/calculator ."
                }

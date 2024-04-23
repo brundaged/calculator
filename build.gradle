@@ -27,9 +27,6 @@ task copyDockerfile(type: Copy) {
     from 'src/main'
     into '.'
     include 'Dockerfile'
-
-    inputs.file 'src/main/Dockerfile'
-    outputs.file 'Dockerfile'
 }
 
 
