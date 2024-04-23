@@ -46,11 +46,11 @@ pipeline {
           }
           stage("Docker build") {
                steps {
-                    sh "ls -alF"
+                    sh "pwd; ls -alF"
                     sh "cd /home/jenkins/agent"
-                    sh "ls -alF"
+                    sh "pwd; ls -alF"
                     sh "cd /home/jenkins/agent/workspace"
-                    sh "ls -alF"
+                    sh "pwd; ls -alF"
                     sh "docker build -t brundaged/calculator ."
                }
           }
