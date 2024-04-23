@@ -24,7 +24,7 @@ dependencies {
 }
 
 task copyDockerfile(type: Copy) {
-    from 'src/main'
+    from 'src/main/resources'
     into '.'
     include 'Dockerfile'
 }
