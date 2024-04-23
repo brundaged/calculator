@@ -23,6 +23,16 @@ dependencies {
 	testImplementation 'junit:junit:4.13'
 }
 
+task copyDockerfile(type: Copy) {
+    from 'src/main'
+    into '.'
+    include 'Dockerfile'
+
+    inputs.file 'src/main/Dockerfile'
+    outputs.file 'Dockerfile'
+}
+
+
 // tasks.named('test') {
 // 	useJUnitPlatform()
 // }
