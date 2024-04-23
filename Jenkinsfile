@@ -46,7 +46,7 @@ pipeline {
           }
           stage("Docker build") {
                steps {
-                    sh "docker build -t brundage.dyndns.org:90/calculator ."
+                    sh "docker build -t brundaged/calculator ."
                }
           }
      }
