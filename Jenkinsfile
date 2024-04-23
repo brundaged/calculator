@@ -39,6 +39,16 @@ pipeline {
                     ])                    
                }
           }
+          stage("Package") {
+               steps {
+                    sh "./gradlew build"
+               }
+          }
+          stage("Docker build") {
+               steps {
+                    sh "docker build -t brundage.dyndns.org:90/calculator ."
+               }
+          }
      }
      post {
           failure {
