@@ -4,7 +4,7 @@ pipeline {
           stage("Checkout") {
                steps {
                     withCredentials([sshUserPrivateKey(credentialsId: 'github-personal-key', keyFileVariable: 'SSH_KEY')]) {
-                         git url: 'https://github.com/brundaged/calculator.git', branch: 'main'
+                         git url: 'https://github.com/brundaged/calculator.git', branch: 'feature'
                     }
                }
           }
@@ -41,7 +41,6 @@ pipeline {
           }
           stage("Package") {
                steps {
-                    sh "./gradlew copyDockerfile"
                     sh "./gradlew build"
                }
           }
