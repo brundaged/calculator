@@ -46,8 +46,7 @@ pipeline {
           }
           stage("Docker build") {
                steps {
-                    sh "ls -alF ./src/main"
-                    sh "cp ./src/main/Dockerfile ."
+                    sh "ls -alF ./src/main/resources"
                     sh "docker build -t brundaged/calculator ."
                }
           }
