@@ -23,8 +23,17 @@ dependencies {
 	testImplementation 'junit:junit:4.13'
 }
 
+sourceSets {
+	main {
+		resources {
+			srcDirs 'src/main/docker'
+		}
+	}
+
+}
+
 task copyDockerfile(type: Copy) {
-    from 'src/main/resources'
+    from 'src/main/docker'
     into '.'
     include 'Dockerfile'
 }

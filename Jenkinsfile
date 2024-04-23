@@ -41,12 +41,13 @@ pipeline {
           }
           stage("Package") {
                steps {
+                    sh "./gradlew copyDockerfile"
                     sh "./gradlew build"
                }
           }
           stage("Docker build") {
                steps {
-                    sh "ls -alF ./src/main/resources"
+                    sh "ls -alF ./src/main/docker"
                     sh "docker build -t brundaged/calculator ."
                }
           }
