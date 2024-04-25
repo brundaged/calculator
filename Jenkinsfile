@@ -62,6 +62,12 @@ pipeline {
                     sh "docker run -d --rm -p 8765:8081 --name calculator brundaged/calculator"
                }
           }
+          stage("Acceptance test") {
+               steps {
+                    sleep 20
+                    sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
+               }
+          }
      }     
      post {
           failure {
