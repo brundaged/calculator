@@ -52,7 +52,17 @@ pipeline {
                     sh "docker build -t brundaged/calculator ."
                }
           }
-     }
+          stage("Docker push") {
+               steps {
+                    sh "docker push leszko/calculator"
+               }
+          }
+          stage("Deploy to staging") {
+               steps {
+                    sh "docker run -d --rm -p 8765:8081 --name calculator brundaged/calculator"
+               }
+          }
+     }     
      post {
           failure {
                mail to: 'derrick.brundage@gmail.com',
