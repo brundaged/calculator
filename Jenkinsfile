@@ -79,7 +79,7 @@ pipeline {
                slackSend channel: '#jenkins-pipeline',
                color: 'danger',
                message: "Pipeline [${currentBuild.fullDisplayName}] status: ${currentBuild.result}"
-               sh "docker stop brundaged/calculator"
+               sh "docker stop calculator"
           }
      }
 }
