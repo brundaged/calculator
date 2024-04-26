@@ -13,15 +13,27 @@ java {
 	sourceCompatibility = '17'
 }
 
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'io.cucumber:cucumber-java:7.17.0'
+	testImplementation 'io.cucumber:cucumber-junit:7.17.0'
+//	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'junit:junit:4.13'
+}
+
+tasks.register('acceptanceTest', Test) {
+	include '**/acceptance/**'
+	systemProperties System.getProperties()
+}
+
 repositories {
 	mavenCentral()
 }
 
-dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'io.cucumber:cucumber-java:6.10.4'
-//	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'junit:junit:4.13'
+test {
+	useJUnitPlatform()
+	exclude '**/acceptance/**'
 }
 
 sourceSets {
