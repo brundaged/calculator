@@ -19,8 +19,10 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-//	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'junit:junit:4.13'
+	testImplementation 'io.cucumber:cucumber-java:7.17.0'
+	testImplementation 'io.cucumber:cucumber-junit:7.17.0'
 }
 
 sourceSets {
@@ -29,7 +31,6 @@ sourceSets {
 			srcDirs 'src/main/docker'
 		}
 	}
-
 }
 
 task copyDockerfile(type: Copy) {
@@ -38,10 +39,21 @@ task copyDockerfile(type: Copy) {
     include 'Dockerfile'
 }
 
-
+// commented out because deprecated.  Needs replacement?
 // tasks.named('test') {
 // 	useJUnitPlatform()
 // }
+
+// test {
+// 	useJUnitPlatform()
+// 	exclude '**/acceptance/**'
+// } 
+
+tasks.register('acceptanceTest', Test) {
+	include '**/acceptance/**'
+	systemProperties System.getProperties()
+}
+
 
 jacocoTestCoverageVerification {
      violationRules {
@@ -52,3 +64,5 @@ jacocoTestCoverageVerification {
           }
      }
 }
+
+
