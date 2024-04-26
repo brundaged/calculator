@@ -1,10 +1,11 @@
 package acceptance;
-import io.cucumber.java.en.Given;
+
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en.Given;
+
 import org.springframework.web.client.RestTemplate;
 import static org.junit.Assert.assertEquals;
-
 /** Steps definitions for calculator.feature */
 public class StepDefinitions {
     private String server = System.getProperty("calculator.url");
