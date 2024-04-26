@@ -27,14 +27,15 @@ tasks.register('acceptanceTest', Test) {
 	systemProperties System.getProperties()
 }
 
+tasks.named('test', Test) {
+	useJUnitPlatform()
+	exclude '**/acceptance/**'
+}
+
 repositories {
 	mavenCentral()
 }
 
-// test {
-// 	useJUnitPlatform()
-// 	exclude '**/acceptance/**'
-// }
 
 sourceSets {
 	main {
@@ -50,11 +51,6 @@ task copyDockerfile(type: Copy) {
     include 'Dockerfile'
 }
 
-
-// tasks.named('test') {
-// 	useJUnitPlatform()
-// }
-
 jacocoTestCoverageVerification {
      violationRules {
           rule {
@@ -64,5 +60,7 @@ jacocoTestCoverageVerification {
           }
      }
 }
+
+
 
 
