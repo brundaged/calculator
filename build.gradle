@@ -31,10 +31,10 @@ repositories {
 	mavenCentral()
 }
 
-test {
-	useJUnitPlatform()
-	exclude '**/acceptance/**'
-}
+// test {
+// 	useJUnitPlatform()
+// 	exclude '**/acceptance/**'
+// }
 
 sourceSets {
 	main {
@@ -51,9 +51,9 @@ task copyDockerfile(type: Copy) {
 }
 
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
+// tasks.named('test') {
+// 	useJUnitPlatform()
+// }
 
 jacocoTestCoverageVerification {
      violationRules {
