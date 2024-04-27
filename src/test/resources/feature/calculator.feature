@@ -7,4 +7,4 @@ Feature: Calculator
   Scenario: Multiply two numbers
     Given I have two numbers: 3 and 5
     When the calculator multiplies them
-    Then I receive 15 as a result
+    Then I receive 150 as a result
