@@ -68,6 +68,11 @@ pipeline {
                     sh "./gradlew acceptanceTest"
                     // sh "./gradlew acceptanceTest -Dcalculator.url=http://localhost:8765"
                     // sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
+                     publishHTML (target: [
+                         reportDir: 'build/reports/tests/acceptanceTest',
+                         reportFiles: 'index.html',
+                         reportName: "Cucumber Acceptance Test Report"
+                    ]) 
                }
           }
      }     
