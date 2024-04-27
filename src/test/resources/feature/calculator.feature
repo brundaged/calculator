@@ -5,6 +5,6 @@ Feature: Calculator
     Then I receive 3 as a result
 
   Scenario: Multiply two numbers
-    Given I have two numbers: 3 and 5
+    Given I have two numbers: 3 and 50
     When the calculator multiplies them
     Then I receive 150 as a result
