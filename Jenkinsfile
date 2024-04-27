@@ -90,7 +90,13 @@ pipeline {
                slackSend channel: '#jenkins-pipeline',
                color: 'danger',
                message: "Pipeline [${currentBuild.fullDisplayName}] status: ${currentBuild.result}"
+               publishHTML (target: [
+                    reportDir: 'build/reports/tests/acceptanceTest',
+                    reportFiles: 'index.html',
+                    reportName: "Acceptance Test Report"
+               ]) 
                sh "docker stop calculator"
+
           }
      }
 }
