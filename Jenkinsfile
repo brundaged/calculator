@@ -70,15 +70,6 @@ pipeline {
                     // sh "chmod +x acceptance_test.sh && ./acceptance_test.sh"
                }
           }
-          stage("Acceptance Test Report") {
-               steps {
-                    publishHTML (target: [
-                         reportDir: 'build/reports/tests/acceptanceTest',
-                         reportFiles: 'index.html',
-                         reportName: "Acceptance Test Report"
-                    ]) 
-               }
-          }
      }     
      post {
           failure {
@@ -96,7 +87,6 @@ pipeline {
                     reportName: "Acceptance Test Report"
                ]) 
                sh "docker stop calculator"
-
           }
      }
 }
