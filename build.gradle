@@ -33,7 +33,7 @@ dependencies {
 
 tasks.register('acceptanceTest', Test) {
 	include '**/acceptance/**'
-	systemProperty 'webapp.url', 'http://localhost:8765'
+	// systemProperty 'webapp.url', 'http://localhost:8765'
 	// systemProperties System.getProperties()
 }
 
