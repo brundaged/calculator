@@ -9,17 +9,27 @@ plugins {
 group = 'com.brundage'
 version = '0.0.1-SNAPSHOT'
 
+// java {
+// 	sourceCompatibility = '17'
+// }
+
 java {
-	sourceCompatibility = '17'
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)                
+    }
 }
 
 dependencies {
+	testImplementation 'org.junit.jupiter:junit-jupiter:5.11.0-M1'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
 	testImplementation 'io.cucumber:cucumber-java:7.17.0'
 	testImplementation 'io.cucumber:cucumber-junit:7.17.0'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'junit:junit:4.13'
 }
+
 
 tasks.register('acceptanceTest', Test) {
 	include '**/acceptance/**'
@@ -52,13 +62,15 @@ task copyDockerfile(type: Copy) {
 }
 
 jacocoTestCoverageVerification {
-     violationRules {
-          rule {
-               limit {
-                    minimum = 0.2
-               }
-          }
-     }
+	violationRules {
+		rule {
+			limit {
+				counter = 'INSTRUCTION'
+				value = 'COVEREDRATIO'
+				minimum = 0.2
+          	}
+        }
+    }
 }
 
 
