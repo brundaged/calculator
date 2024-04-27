@@ -7,7 +7,7 @@ import io.cucumber.java.en.Given;
 import org.springframework.web.client.RestTemplate;
 import static org.junit.Assert.assertEquals;
 /** Steps definitions for calculator.feature */
-public class SumStepDefinitions {
+public class StepDefinitions {
     private String server = System.getProperty("calculator.url");
     private RestTemplate restTemplate = new RestTemplate();
     private String a;
@@ -23,6 +23,12 @@ public class SumStepDefinitions {
     @When("^the calculator sums them$")
     public void the_calculator_sums_them() throws Throwable {
         String url = String.format("%s/sum?a=%s&b=%s", server, a, b);
+        result = restTemplate.getForObject(url, String.class);
+    }
+
+    @When("^the calculator multiplies them$")
+    public void the_calculator_multiplies_them() throws Throwable {
+        String url = String.format("%s/product?a=%s&b=%s", server, a, b);
         result = restTemplate.getForObject(url, String.class);
     }
 
